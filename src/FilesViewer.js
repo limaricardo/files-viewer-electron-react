@@ -5,7 +5,7 @@ export const FilesViewer = ({ files, onBack, onOpen }) => (
     <tbody>
       <tr className="clickable">
         <td className="icon-row">
-          <IconfolderOpen />
+          <IconFolderOpen />
         </td>
         <td>...</td>
         <td></td>
@@ -14,7 +14,7 @@ export const FilesViewer = ({ files, onBack, onOpen }) => (
         return (
           <tr className="clickable" onClick={() => directory && onOpen(name)}>
             <td className="icon-row">
-              {directory ? <Iconfolder /> : <IconFile />}
+              {directory ? <IconFolder /> : <IconFile />}
             </td>
             <td>{name}</td>
             <td>

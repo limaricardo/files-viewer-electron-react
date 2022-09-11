@@ -14,12 +14,10 @@ const createWindow = () => {
   });
 
   mainWindow.loadURL(
-    win.loadURL(
       isDev
         ? "http://localhost:3000"
         : `file://${path.join(__dirname, "../build/index.html")}`
     )
-  );
 };
 
 app.on("ready", createWindow);
