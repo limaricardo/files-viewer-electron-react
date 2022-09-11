@@ -54,8 +54,8 @@ export const App = () => {
           className="form-control form-control-sm"
           placeholder="File search"
         />
-
       </div>
+      <FilesViewer files={filteredFiles} onBack={onBack} onOpen={onOpen} />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 const { app, BrowserWindow } = require("electron");
 
-require('@electron/remote/main').initialize()
+require("@electron/remote/main").initialize();
 
 let mainWindow;
 
@@ -13,10 +13,16 @@ const createWindow = () => {
     },
   });
 
-  mainWindow.loadURL("http://localhost:3000");
+  mainWindow.loadURL(
+    win.loadURL(
+      isDev
+        ? "http://localhost:3000"
+        : `file://${path.join(__dirname, "../build/index.html")}`
+    )
+  );
 };
 
-app.on("ready", createWindow)
+app.on("ready", createWindow);
 
 // Quit when all windows are closed.
 app.on("window-all-closed", () => {
@@ -28,8 +34,7 @@ app.on("window-all-closed", () => {
 });
 
 app.on("activate", () => {
-
   // On OS X it is common to re-create a window in the app when the
   // dock icon is clicked and there are no other window open.
-  if(BrowserWindow.getAllWindows().length === 0) createWindow()
-})
+  if (BrowserWindow.getAllWindows().length === 0) createWindow();
+});
